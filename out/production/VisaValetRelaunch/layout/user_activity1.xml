@@ -1,0 +1,213 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    
+    tools:context="com.visa.valet.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp" >
+
+            <ImageView
+                android:id="@+id/ImageView15"
+                android:layout_width="40dp"
+                android:layout_height="47dp"
+                android:src="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/ImageView17"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/ImageView16"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="77dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 1" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/circle_navy" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/empty" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="40dp"
+                android:layout_height="47dp"
+                android:src="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/ImageView07"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/approved" />
+
+            <ImageView
+                android:id="@+id/ImageView08"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/empty" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 2" />
+
+            <ImageView
+                android:id="@+id/ImageView01"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/circle_green" />
+
+            <ImageView
+                android:id="@+id/ImageView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/empty" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp" >
+
+            <ImageView
+                android:id="@+id/ImageView09"
+                android:layout_width="40dp"
+                android:layout_height="47dp"
+                android:src="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/ImageView10"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/approved" />
+
+            <ImageView
+                android:id="@+id/ImageView11"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/empty" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 3" />
+
+            <ImageView
+                android:id="@+id/ImageView03"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/ImageView01"
+                android:src="@drawable/circle_yellow" />
+
+            <ImageView
+                android:id="@+id/ImageView04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/empty" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp" >
+
+            <ImageView
+                android:id="@+id/ImageView12"
+                android:layout_width="40dp"
+                android:layout_height="47dp"
+                android:src="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/ImageView13"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/yellowline" />
+
+            <ImageView
+                android:id="@+id/ImageView14"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/empty" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 4" />
+
+            <ImageView
+                android:id="@+id/ImageView05"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/circle_red" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Declined" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="findlawyer"
+                android:text="Find a Lawyer" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

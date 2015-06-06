@@ -1,0 +1,181 @@
+package com.visa.valet;
+
+import java.util.Map;
+
+import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+//import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.EditText;
+
+
+public class MainActivity extends Activity {
+	Firebase myFirebaseRef;
+	TextView t;
+	EditText email;
+	EditText email1;
+	EditText password;
+	EditText password1;
+	EditText confirm;
+	String user_email;
+	String user_password;
+	String user_email1;
+	String user_password1;
+	String user_confirm;
+	Button login;
+	Button signup;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        t = (TextView)findViewById(R.id.textView1);
+        Firebase.setAndroidContext(this);
+        
+        myFirebaseRef = new Firebase("https://scorching-fire-2740.firebaseio.com/");
+        myFirebaseRef.child("message").setValue("Do you have data? You'll love Firebase.");
+        email= (EditText)findViewById(R.id.editText1);
+        password= (EditText)findViewById(R.id.editText2);
+        email1= (EditText)findViewById(R.id.EditText01);
+        password1= (EditText)findViewById(R.id.EditText02);
+        confirm= (EditText)findViewById(R.id.EditText03);
+        login = (Button)findViewById(R.id.button1);
+     //   login.setOnClickListener(l);
+        signup = (Button)findViewById(R.id.Button01);
+     //   signup.setOnClickListener(s);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+  //      getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+   /* @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
+    
+    
+    public void getAppointments(View v){
+    	
+    	myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
+
+    		  @Override
+    		  public void onDataChange(DataSnapshot snapshot) {
+    		   // System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+    		  t.setText(String.valueOf(snapshot.getValue()));
+    		  }
+
+    		  @Override public void onCancelled(FirebaseError error) { }
+
+    		});
+    }
+    /*
+    public void signup(View v){
+    	user_email1=email1.getText().toString();
+        user_password =password1.getText().toString();
+        user_confirm=confirm.getText().toString();
+        
+    	myFirebaseRef.createUser(user_email1, user_password, new Firebase.ValueResultHandler<Map<String, Object>>() {
+    	    @Override
+    	    public void onSuccess(Map<String, Object> result) {
+    	    	TextView t = (TextView)findViewById(R.id.textView2);
+    	    	t.setText("Successfully created user account with uid: " + result.get("uid"));
+    	    }
+    	    @Override
+    	    public void onError(FirebaseError firebaseError) {
+    	        // there was an error
+    	    }
+    	});
+    }
+    
+    public void login(View v){
+    	
+    }*/
+  /*  OnClickListener l = new OnClickListener() {
+  	   @Override
+  	   public void onClick(View v) {
+  	      // button 1 was clicked!
+  	   }
+  	};*/
+    
+  	/* OnClickListener s = new OnClickListener() {
+  		 @Override
+    	   public void onClick(View v) {
+    	      // button 1 was clicked!
+    	   }
+    	};*/
+    	public void signup(View v){
+    		user_email1=email1.getText().toString();
+    		user_password1=password1.getText().toString();
+    	//	TextView t = (TextView)findViewById(R.id.textView2);
+	    //	t.setText("Successfully created user account");
+	    	Log.d("VISA",user_email1 + "test");
+	    	createUser(user_email1,user_password1);
+    	}
+    	public void login(View v){
+    		user_email=email.getText().toString();
+    		user_password=password.getText().toString();
+    	//	t.setText("Successfully created user account");
+    		Log.d("VISA",user_email+"test");
+    		authenticateUser(user_email,user_password);
+    	}
+    	
+    	
+    	public void createUser(String email, String pass){
+    		myFirebaseRef.createUser(email, pass, new Firebase.ValueResultHandler<Map<String, Object>>() {
+    		    @Override
+    		    public void onSuccess(Map<String, Object> result) {
+    		        System.out.println("Successfully created user account with uid: " + result.get("uid"));
+    		        Log.d("VISA","User created");
+    		        Intent i = new Intent(MainActivity.this,UserActivity.class);
+    		        startActivity(i);
+    		    }
+    		    @Override
+    		    public void onError(FirebaseError firebaseError) {
+    		        // there was an error
+    		    }
+    		});
+    	}
+    	
+    	public void authenticateUser(String email, String pass){
+    		//Firebase ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+    		myFirebaseRef.authWithPassword(email, pass, new Firebase.AuthResultHandler() {
+    		    @Override
+    		    public void onAuthenticated(AuthData authData) {
+    		        System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+    		        Log.d("VISA","User logged in");
+    		        Intent i = new Intent(MainActivity.this,UserActivity.class);
+    		        startActivity(i);
+    		    }
+
+    		    @Override
+    		    public void onAuthenticationError(FirebaseError firebaseError) {
+    		        // there was an error
+    		    }
+    		});
+    	}
+}

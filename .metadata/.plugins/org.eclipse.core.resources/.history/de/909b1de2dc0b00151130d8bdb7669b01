@@ -1,0 +1,32 @@
+package com.visa.valet;
+
+public class Lawyer {
+String name;
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int getReviews() {
+	return reviews;
+}
+public void setReviews(int reviews) {
+	this.reviews = reviews;
+}
+public int getSuccess() {
+	return success;
+}
+public void setSuccess(int success) {
+	this.success = success;
+}
+public int getYears() {
+	return years;
+}
+public void setYears(int years) {
+	this.years = years;
+}
+int reviews;
+int success;
+int years;
+}
